@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ajax</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body id="backdrop">
+    <h1 id="topTitle">Cats Adoption</h1>
+
+    <div id="emptyDiv"></div>
+
+    <h2>Your cat has 7 lives. &nbsp &nbsp So please enter 7 in below box</h2>
+
+    <div id="centerForm">
+        <form>
+            <input type="text" placeholder="cats" />
+            <input type="submit" value="Get cats Info" />
+        </form>
+
+        <dl>
+            <dt>Breed</dt>
+            <dd id="breed"></dd>
+
+            <dt>Country</dt>
+            <dd id="country"></dd>
+
+            <dt>Coat</dt>
+            <dd id="coat"></dd>
+        </dl>
+    </div>
+
+
+    <script>
+        $(() => {
+            $('form').on('submit', (event) => {
+                event.preventDefault();
+
+                const userInput = $('input[type="text"]').val();
+                $.ajax({
+                    url: 'https://catfact.ninja/breeds?limit=' + userInput
+                }).then(
+                    (data) => {
+                        $('#breed').html(data.data[0].breed);
+                        $('#country').html(data.data[0].country);
+                        $('#coat').html(data.data[0].coat);
+                    },
+                    () => {
+                        console.log('bad');
+                    }
+                );
+            })
+        })
+    </script>
+
+</body>
+
+</html>

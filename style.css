@@ -1,0 +1,27 @@
+
+#backdrop{
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-image: url("image/cats.jpeg");
+}
+
+#topTitle{
+    font-style: italic;
+    font-size: 50pt;
+    text-align: center;
+    color: rgb(223, 91, 91);
+}
+
+#emptyDiv{
+    height: 230px;
+}
+
+h2{
+    text-align: center;
+    color: rgb(218, 112, 218);
+}
+
+#centerForm{
+    text-align: center;
+}
